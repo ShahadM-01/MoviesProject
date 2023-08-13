@@ -1,0 +1,4 @@
+/* Add these styles to change the border color */
+.input-touched {
+    border-color: teal !important;
+  }
