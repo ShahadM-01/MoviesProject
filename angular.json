@@ -87,6 +87,9 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/tailwindcss/dist/base.min.css",
+              "./node_modules/tailwindcss/dist/components.min.css",
+              "./node_modules/tailwindcss/dist/utilities.min.css",
               "src/styles.css"
             ],
             "scripts": []
