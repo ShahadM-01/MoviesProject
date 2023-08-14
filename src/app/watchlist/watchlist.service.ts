@@ -18,5 +18,8 @@ export class WatchlistService {
         }
     }
 
+    getWatchlist() {
+        return this.watchlist;
+    }
 
 }
