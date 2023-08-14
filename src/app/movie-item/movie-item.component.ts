@@ -8,6 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MovieItemComponent implements OnInit {
   @Input() name: string;
   @Input() index: number;
+ btnName: string;
+
+ btnchange(){
+  this.btnName = "Watched"
+ }
 
   ngOnInit(): void {
 

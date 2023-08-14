@@ -6,6 +6,7 @@ import { SearchComponent } from './search/search.component';
 import { WatchlistComponent } from './watchlist/watchlist.component';
 import { WatchedListComponent } from './watched-list/watched-list.component';
 import { MovieItemComponent } from './movie-item/movie-item.component';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { MovieItemComponent } from './movie-item/movie-item.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

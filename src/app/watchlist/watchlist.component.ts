@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MovieItemComponent } from '../movie-item/movie-item.component';
 
 @Component({
   selector: 'app-watchlist',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./watchlist.component.css']
 })
 export class WatchlistComponent {
+  movieItemComponent: MovieItemComponent;
+  @ViewChild('movieItem') movieItem: MovieItemComponent;
 
+  
 }
