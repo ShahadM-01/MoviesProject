@@ -1,10 +1,14 @@
 <div class="flex flex-col">
-    <div class="flex justify-start mb-12">
-      <div class="w-1/2">
-        <label for="">Watchlist</label>
-      </div>
-    </div>
-    <div class="flex gap-4">
-
+  <div class="flex justify-start">
+    <label for="" class="mr-2" style="font-weight: 500;">Watchlist</label>
+  </div>
+  <div class="grid grid-cols-2 pt-4">
+    <div class="border p-2"> </div>
+    <div class="">
+      <input type="text" class="border p-2 w-full" placeholder="Movie...">
     </div>
   </div>
+  <div class="border px-1">
+    <app-movie-item></app-movie-item>
+  </div>
+</div>

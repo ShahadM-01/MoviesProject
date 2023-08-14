@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-movie-item',
   templateUrl: './movie-item.component.html',
   styleUrls: ['./movie-item.component.css']
 })
-export class MovieItemComponent {
+export class MovieItemComponent implements OnInit {
+  @Input() name: string;
+  @Input() index: number;
 
+  ngOnInit(): void {
+
+  }
 }
