@@ -7,6 +7,9 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
 import { WatchedListComponent } from './watched-list/watched-list.component';
 import { MovieItemComponent } from './movie-item/movie-item.component';
 import {HttpClientModule} from '@angular/common/http'
+import { DataStorageService } from './services/data-storage.service';
+import { SearchService } from './services/search.service';
+import { WatchlistService } from './watchlist/watchlist.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,7 @@ import {HttpClientModule} from '@angular/common/http'
   imports: [
     BrowserModule
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule, DataStorageService, SearchService, WatchlistService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
