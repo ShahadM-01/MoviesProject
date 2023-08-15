@@ -11,15 +11,22 @@ export class MovieItemComponent implements OnInit {
   @Input() index: number;
   @Input() btnName: string;
 
-constructor(private watchlistService: ListService){}
+  constructor(private listService: ListService) { }
   ngOnInit(): void {
 
   }
 
-  onDelete(){
-    if(this.btnName === 'Watched'){
-      this.watchlistService.removeFromWatchlist(this.name);
+  onDelete() {
+    if (this.btnName === 'Watched') {
+      this.listService.removeFromWatchlist(this.name);
     }
-    else this.watchlistService.removeFromWatched(this.name);
+    else this.listService.removeFromWatched(this.name);
+  }
+
+  onMove() {
+    if (this.btnName === 'Watched') {
+      this.listService.moveToWatched(this.name);
+    }
+else this.listService.moveToWatchlist(this.name);
   }
 }
