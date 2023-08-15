@@ -9,8 +9,8 @@ import { MovieItemComponent } from './movie-item/movie-item.component';
 import {HttpClientModule} from '@angular/common/http'
 import { DataStorageService } from './services/data-storage.service';
 import { SearchService } from './services/search.service';
-import { ListService } from './services/watchlist.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListService } from './services/list.service';
 
 @NgModule({
   declarations: [

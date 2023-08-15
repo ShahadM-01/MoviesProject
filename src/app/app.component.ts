@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ListService } from './services/watchlist.service';
+import { ListService } from './services/list.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({

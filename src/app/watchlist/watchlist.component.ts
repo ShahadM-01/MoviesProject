@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ListService } from '../services/watchlist.service';
+import { ListService } from '../services/list.service';
 
 @Component({
   selector: 'app-watchlist',
