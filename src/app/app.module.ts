@@ -9,7 +9,7 @@ import { MovieItemComponent } from './movie-item/movie-item.component';
 import {HttpClientModule} from '@angular/common/http'
 import { DataStorageService } from './services/data-storage.service';
 import { SearchService } from './services/search.service';
-import { WatchlistService } from './watchlist/watchlist.service';
+import { ListService } from './services/watchlist.service';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -24,7 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     ReactiveFormsModule
   ],
-  providers: [HttpClientModule, DataStorageService, SearchService, WatchlistService],
+  providers: [HttpClientModule, DataStorageService, SearchService, ListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

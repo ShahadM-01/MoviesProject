@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WatchlistService } from './watchlist.service';
+import { ListService } from '../services/watchlist.service';
 
 @Component({
   selector: 'app-watchlist',
@@ -7,5 +7,6 @@ import { WatchlistService } from './watchlist.service';
   styleUrls: ['./watchlist.component.css']
 })
 export class WatchlistComponent {
-  constructor(public watchlistService: WatchlistService) {}
+  constructor(public watchlistService: ListService) {}
+
 }

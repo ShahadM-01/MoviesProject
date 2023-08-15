@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WatchlistService } from './watchlist/watchlist.service';
+import { ListService } from './services/watchlist.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AppComponent implements OnInit {
   addForm: FormGroup;
 
-  constructor(private watchlistService: WatchlistService, private formBuilder: FormBuilder) { }
+  constructor(private watchlistService: ListService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.addForm = this.formBuilder.group({

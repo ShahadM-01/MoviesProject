@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ListService } from '../services/watchlist.service';
 
 @Component({
   selector: 'app-movie-item',
@@ -10,8 +11,15 @@ export class MovieItemComponent implements OnInit {
   @Input() index: number;
   @Input() btnName: string;
 
-
+constructor(private watchlistService: ListService){}
   ngOnInit(): void {
 
+  }
+
+  onDelete(){
+    if(this.btnName === 'Watched'){
+      this.watchlistService.removeFromWatchlist(this.name);
+    }
+    else this.watchlistService.removeFromWatched(this.name);
   }
 }
