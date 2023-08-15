@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ListService } from './services/list.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -10,18 +10,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AppComponent implements OnInit {
   addForm: FormGroup;
 
-  constructor(private watchlistService: ListService, private formBuilder: FormBuilder) { }
+  constructor(private listService: ListService) { }
 
   ngOnInit(): void {
-    this.addForm = this.formBuilder.group({
-      name: ['', Validators.required]
+    this.addForm = new FormGroup({
+      name: new FormControl ('', Validators.required),
     });
   }
 
   addToWatchlist() {
     if (this.addForm.valid) {
       const movie = this.addForm.get('name').value;
-      this.watchlistService.addToWatchlist(movie);
+      this.listService.addToWatchlist(movie);
       this.addForm.reset();
     }
   }
