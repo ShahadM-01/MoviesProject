@@ -41,4 +41,12 @@ export class ListService {
   getWatchedList() {
     return this.watchedList;
   }
+
+  getWatchlistCount() {
+    return this.watchlist.length;
+  }
+
+  getWatchedLisCountt() {
+    return this.watchedList.length;
+  }
 }

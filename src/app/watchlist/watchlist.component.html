@@ -1,6 +1,8 @@
 <div class="flex flex-col">
   <div class="flex justify-start">
     <label for="" class="mr-2" style="font-weight: 500;">Watchlist</label>
+    <label for="" class="mr-2"
+      style="border: 1px solid lightgray; border-radius: 50%; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center;">{{ listService.getWatchlistCount() }}</label>
   </div>
   <div class="grid grid-cols-2 pt-4">
     <div class="border p-2"> </div>
@@ -9,6 +11,7 @@
     </div>
   </div>
   <div class="border px-1">
-    <app-movie-item *ngFor="let movie of listService.getWatchlist()" [name]="movie" [btnName]="'Watched'"></app-movie-item>
+    <app-movie-item *ngFor="let movie of listService.getWatchlist()" [name]="movie"
+      [btnName]="'Watched'"></app-movie-item>
   </div>
 </div>
