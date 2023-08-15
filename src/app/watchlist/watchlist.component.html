@@ -9,6 +9,6 @@
     </div>
   </div>
   <div class="border px-1">
-    <app-movie-item *ngFor="let movie of watchlistService.getWatchlist()" [name]="movie" [btnName]="'Watched'"></app-movie-item>
+    <app-movie-item *ngFor="let movie of listService.getWatchlist()" [name]="movie" [btnName]="'Watched'"></app-movie-item>
   </div>
 </div>

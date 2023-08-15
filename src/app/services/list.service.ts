@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ListService {
   watchlist: string[] = [];
   watchedList: string[] = [];
@@ -19,6 +17,7 @@ export class ListService {
       this.watchlist.splice(index, 1);
     }
   }
+  
   removeFromWatched(movie: string) {
     const index = this.watchedList.indexOf(movie);
     if (index !== -1) {
