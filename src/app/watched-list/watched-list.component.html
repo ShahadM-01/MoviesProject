@@ -9,6 +9,6 @@
       </div>
     </div>
     <div class="border px-1">
-      <app-movie-item></app-movie-item>
+      <app-movie-item *ngFor="let movie of listService.getWatchedList()" [name]="movie" [btnName]="'Unwatch'"></app-movie-item>
     </div>
   </div>
