@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { MovieItemComponent } from '../movie-item/movie-item.component';
+import { Component } from '@angular/core';
+import { WatchlistService } from './watchlist.service';
 
 @Component({
   selector: 'app-watchlist',
@@ -7,8 +7,5 @@ import { MovieItemComponent } from '../movie-item/movie-item.component';
   styleUrls: ['./watchlist.component.css']
 })
 export class WatchlistComponent {
-  movieItemComponent: MovieItemComponent;
-  @ViewChild('movieItem') movieItem: MovieItemComponent;
-
-  
+  constructor(public watchlistService: WatchlistService) {}
 }

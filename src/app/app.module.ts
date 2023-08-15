@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http'
 import { DataStorageService } from './services/data-storage.service';
 import { SearchService } from './services/search.service';
 import { WatchlistService } from './watchlist/watchlist.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { WatchlistService } from './watchlist/watchlist.service';
     MovieItemComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule
   ],
   providers: [HttpClientModule, DataStorageService, SearchService, WatchlistService],
   bootstrap: [AppComponent]
