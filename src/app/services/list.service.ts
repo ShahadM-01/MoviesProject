@@ -49,4 +49,12 @@ export class ListService {
   getWatchedLisCountt() {
     return this.watchedList.length;
   }
+
+  setWatchlist(watchlist: any[]) {
+    this.watchlist = watchlist;
+  }
+
+  setWatchedList(watchedList: any[]) {
+    this.watchedList = watchedList;
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ListService } from '../services/list.service';
+import { DataStorageService } from '../services/data-storage.service';
 
 @Component({
   selector: 'app-movie-item',
@@ -11,7 +12,7 @@ export class MovieItemComponent implements OnInit {
   @Input() index: number;
   @Input() btnName: string;
 
-  constructor(private listService: ListService) { }
+  constructor(private listService: ListService, private dataStorage: DataStorageService) { }
   ngOnInit(): void {
 
   }
@@ -21,12 +22,14 @@ export class MovieItemComponent implements OnInit {
       this.listService.removeFromWatchlist(this.name);
     }
     else this.listService.removeFromWatched(this.name);
+    
   }
 
   onMove() {
     if (this.btnName === 'Watched') {
       this.listService.moveToWatched(this.name);
     }
-else this.listService.moveToWatchlist(this.name);
+    else {this.listService.moveToWatchlist(this.name);}
+    this.dataStorage.storeLists();
   }
 }
