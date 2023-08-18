@@ -1,6 +1,5 @@
-<div class="grid grid-cols-2 pt-4">
-    <div class="border p-2"> </div>
-    <div class="">
-      <input type="text" class="border p-2 w-full" placeholder="Search Movies...">
-    </div>
+<div class="flex flex-col">
+  <div class="border px-1">
+    <app-movie-item *ngFor="let movie of searchResults" [name]="movie" [btnName]="'Watched'"></app-movie-item>
   </div>
+</div>

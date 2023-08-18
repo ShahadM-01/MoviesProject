@@ -5,13 +5,17 @@
       style="border: 1px solid lightgray; border-radius: 50%; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center;">{{ listService.getWatchlistCount() }}</label>
   </div>
   <div class="grid grid-cols-2 pt-4">
-    <div class="border p-2"> </div>
+    <div class="border p-2"></div>
     <div class="">
-      <input type="text" class="border p-2 w-full" placeholder="Search Movies...">
+      <input type="text" class="border p-2 w-full" placeholder="Search Movies..." [formControl]="searchControl">
     </div>
   </div>
   <div class="border px-1">
-    <app-movie-item *ngFor="let movie of listService.getWatchlist()" [name]="movie"
-      [btnName]="'Watched'"></app-movie-item>
+    <ng-container *ngIf="searchControl.value">
+      <app-search [query]="searchControl.value"></app-search>
+    </ng-container>
+    <ng-container *ngIf="!searchControl.value">
+<app-movie-item *ngFor="let movie of listService.getWatchlist()" [name]="movie"
+      [btnName]="'Watched'"></app-movie-item></ng-container>
   </div>
 </div>

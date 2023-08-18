@@ -21,8 +21,8 @@ export class MovieItemComponent implements OnInit {
     if (this.btnName === 'Watched') {
       this.listService.removeFromWatchlist(this.name);
     }
-    else this.listService.removeFromWatched(this.name);
-    
+    else {this.listService.removeFromWatched(this.name);}
+    this.dataStorage.storeLists();
   }
 
   onMove() {

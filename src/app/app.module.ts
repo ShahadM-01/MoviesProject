@@ -14,10 +14,10 @@ import { ListService } from './services/list.service';
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent,
     WatchlistComponent,
     WatchedListComponent,
-    MovieItemComponent
+    MovieItemComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
