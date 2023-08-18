@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ListService } from '../services/list.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-watched-list',
@@ -7,6 +8,7 @@ import { ListService } from '../services/list.service';
   styleUrls: ['./watched-list.component.css']
 })
 export class WatchedListComponent {
-  constructor(public listService: ListService) {}
+  watchedlistSearchControl: FormControl = new FormControl('');
 
+  constructor(public listService: ListService) {}
 }

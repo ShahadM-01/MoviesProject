@@ -8,7 +8,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./watchlist.component.css']
 })
 export class WatchlistComponent {
-  searchControl: FormControl = new FormControl('');
+  watchlistSearchControl: FormControl = new FormControl('');
 
   constructor(public listService: ListService) {}
 

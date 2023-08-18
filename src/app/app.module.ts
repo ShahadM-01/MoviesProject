@@ -7,7 +7,6 @@ import { WatchlistComponent } from './watchlist/watchlist.component';
 import { WatchedListComponent } from './watched-list/watched-list.component';
 import { MovieItemComponent } from './movie-item/movie-item.component';
 import {HttpClientModule} from '@angular/common/http'
-import { SearchService } from './services/search.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListService } from './services/list.service';
 
@@ -24,7 +23,7 @@ import { ListService } from './services/list.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [DataStorageService, SearchService, ListService],
+  providers: [DataStorageService, ListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

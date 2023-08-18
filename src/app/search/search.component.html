@@ -1,5 +1,2 @@
-<div class="flex flex-col">
-  <div class="border px-1">
-    <app-movie-item *ngFor="let movie of searchResults" [name]="movie" [btnName]="'Watched'"></app-movie-item>
-  </div>
-</div>
+  <app-movie-item *ngFor="let movie of searchResults" [name]="movie"
+    [btnName]="listName === 'watchlist' ? 'Watched' : 'Unwatch'"></app-movie-item>

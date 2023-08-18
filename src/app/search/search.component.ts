@@ -8,9 +8,10 @@ import { ListService } from '../services/list.service';
 })
 export class SearchComponent implements OnChanges {
   @Input() query: string = '';
+  @Input() listName: string = '';
   searchResults: string[] = [];
 
-  constructor(private listService: ListService) {}
+  constructor(private listService: ListService) { }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.query && this.query) {
@@ -21,13 +22,20 @@ export class SearchComponent implements OnChanges {
   }
 
   performSearch() {
-    const watchlist = this.listService.getWatchlist();
-    this.searchResults = watchlist.filter(item =>
-      item.toLowerCase().includes(this.query.toLowerCase())
-    );
-  }
+    if (this.listName === 'watchlist') {
+      const watchlist = this.listService.getWatchlist();
+      this.searchResults = watchlist.filter(item =>
+        item.toLowerCase().includes(this.query.toLowerCase())
+      );
+    } else if (this.listName === 'watchedlist') {
+      const watchedlist = this.listService.getWatchedList();
+      this.searchResults = watchedlist.filter(item =>
+        item.toLowerCase().includes(this.query.toLowerCase())
+      );
+    }
 
-  getIncrementalResults(): string[] {
-    return this.searchResults.slice(0, this.query.length);
+    if (this.searchResults.length === 0) {
+      this.searchResults = ['Nothing Found'];
+    }
   }
 }
