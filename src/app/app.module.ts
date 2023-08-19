@@ -9,6 +9,7 @@ import { MovieItemComponent } from './movie-item/movie-item.component';
 import {HttpClientModule} from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListService } from './services/list.service';
+import { MovieService } from './services/movie';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { ListService } from './services/list.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [DataStorageService, ListService],
+  providers: [DataStorageService, MovieService, ListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
