@@ -9,7 +9,6 @@ import { DataStorageService } from '../services/data-storage.service';
 })
 export class MovieItemComponent implements OnInit {
   @Input() name: string;
-  @Input() index: number;
   @Input() btnName: string;
 
   constructor(private listService: ListService, private dataStorage: DataStorageService) { }

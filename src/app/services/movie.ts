@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MovieService {
-  private apiKey = 'aecab018'; // Replace with your actual API key from OMDB
+  private apiKey = 'aecab018';
   private apiUrl = 'http://www.omdbapi.com/';
 
   constructor(private http: HttpClient) { }
@@ -14,7 +14,7 @@ export class MovieService {
   getMovieInfo(movie: string): Observable<any> {
     const params = {
       apikey: this.apiKey,
-      t: movie
+      s: movie
     };
     return this.http.get(this.apiUrl, { params });
   }

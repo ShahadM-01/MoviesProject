@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ListService } from '../services/list.service';
 import { FormControl } from '@angular/forms';
+import { ListService } from '../services/list.service';
 
 @Component({
   selector: 'app-watchlist',

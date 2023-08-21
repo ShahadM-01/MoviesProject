@@ -11,12 +11,15 @@ import { MovieService } from './services/movie';
 })
 export class AppComponent implements OnInit {
   addForm: FormGroup;
+  options: any[] = [];
+  showOptions = false;
 
   constructor(
     private listService: ListService,
     private dataStorage: DataStorageService,
     private movieService: MovieService
   ) { }
+
   ngOnInit(): void {
     this.dataStorage.fetchList();
     this.addForm = new FormGroup({
@@ -32,13 +35,45 @@ export class AppComponent implements OnInit {
         console.log(response);
 
         // Extract the movie name from the response
-        const movieName = response.Title;
+        
 
         // Add the movie name to the watchlist
-        this.listService.addToWatchlist(movieName);
+        this.listService.addToWatchlist(response);
         this.dataStorage.storeLists();
         this.addForm.reset();
       });
     }
+  }
+
+  handleInput(event: any) {
+    const inputValue = event.target.value.toLowerCase();
+
+    if (inputValue.length >= 1) {
+      this.movieService.getMovieInfo(inputValue).subscribe((response) => {
+        if (response.Search) {
+          this.options = response.Search;
+          console.log(1);
+          
+        } else {
+          this.options = [];
+          console.log(2);
+          
+        }
+        this.showOptions = !!inputValue;
+      });
+    } else {
+      this.options = [];
+      this.showOptions = false;
+      console.log(3);
+      
+    }
+  }
+
+  selectOption(option: any) {
+    // Do something with the selected option
+  }
+
+  getMoviePoster(option: any): string {
+    return option.Poster;
   }
 }
