@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { ListService } from './services/list.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataStorageService } from './services/data-storage.service';
@@ -13,7 +13,8 @@ export class AppComponent implements OnInit {
   addForm: FormGroup;
   options: any[] = [];
   showOptions = false;
-
+  @HostListener('document:click', ['$event'])
+  @Output() clickOutside: EventEmitter<any> = new EventEmitter<any>();
   constructor(
     private listService: ListService,
     private dataStorage: DataStorageService,
@@ -32,15 +33,11 @@ export class AppComponent implements OnInit {
       const movie = this.addForm.get('name').value;
       this.movieService.getMovieInfo(movie).subscribe((response) => {
         // Handle the movie information response 
-        console.log(response);
-
-        // Extract the movie name from the response
-        
-
+        console.log(response); 
         // Add the movie name to the watchlist
         this.listService.addToWatchlist(response);
         this.dataStorage.storeLists();
-        this.addForm.reset();
+        // this.addForm.reset();
       });
     }
   }
@@ -48,7 +45,7 @@ export class AppComponent implements OnInit {
   handleInput(event: any) {
     const inputValue = event.target.value.toLowerCase();
 
-    if (inputValue.length >= 1) {
+    if (inputValue.length >= 0) {
       this.movieService.getMovieInfo(inputValue).subscribe((response) => {
         if (response.Search) {
           this.options = response.Search;
@@ -56,7 +53,6 @@ export class AppComponent implements OnInit {
           
         } else {
           this.options = [];
-          console.log(2);
           
         }
         this.showOptions = !!inputValue;
@@ -69,11 +65,13 @@ export class AppComponent implements OnInit {
     }
   }
 
-  selectOption(option: any) {
-    // Do something with the selected option
-  }
-
   getMoviePoster(option: any): string {
     return option.Poster;
   }
+
+  @HostListener('document:click', ['$event'])
+  public onClick(event: MouseEvent): void {
+    this.showOptions = false;
+  }
+
 }

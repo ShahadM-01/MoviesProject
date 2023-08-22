@@ -10,12 +10,13 @@ import { DataStorageService } from '../services/data-storage.service';
 export class MovieItemComponent implements OnInit {
   @Input() name: string;
   @Input() btnName: string;
-
+  @Input() image: string;
   constructor(private listService: ListService, private dataStorage: DataStorageService) { }
   ngOnInit(): void {
-
   }
-
+  getInfo(){
+    
+  }
   onDelete() {
     if (this.btnName === 'Watched') {
       this.listService.removeFromWatchlist(this.name);
