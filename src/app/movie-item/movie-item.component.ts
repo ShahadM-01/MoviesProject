@@ -32,4 +32,6 @@ export class MovieItemComponent implements OnInit {
     else {this.listService.moveToWatchlist(this.name);}
     this.dataStorage.storeLists();
   }
+
+
 }

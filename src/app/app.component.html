@@ -21,7 +21,7 @@
               <li
                 class="px-4 py-2 hover:bg-gray-100 cursor-pointer"
                 *ngFor="let option of options"
-                (click)="addToWatchlist(option)"
+                (click)="onSelectOption(option)"
               >
                 <img [src]="getMoviePoster(option)" class="mr-2" height="50" width="35" alt="Movie Poster">
                 {{ option.Title }}

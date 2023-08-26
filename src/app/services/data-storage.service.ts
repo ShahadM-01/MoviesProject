@@ -30,6 +30,9 @@ export class DataStorageService {
       if (watchlist) {
         const watchlistArray = Object.values(watchlist);
         this.listService.setWatchlist(watchlistArray);
+        for (let i = 0; i < watchlistArray.length; i++) {
+          console.log(`Index ${i}: ${watchlistArray[i]}`);
+        }
       }
     });
     this.http.get('https://movie-2d563-default-rtdb.firebaseio.com/watchedList.json').subscribe(watchedList => {

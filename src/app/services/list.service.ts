@@ -13,25 +13,27 @@ export class ListService {
 
   removeFromWatchlist(movie: string) {
     const index = this.watchlist.indexOf(movie);
-    if (index !== -1) {
       this.watchlist.splice(index, 1);
-    }
   }
   
   removeFromWatched(movie: string) {
-    const index = this.watchedList.indexOf(movie);
-    if (index !== -1) {
+    const index = this.watchedList.indexOf(movie);    
       this.watchedList.splice(index, 1);
-    }
   }
+
+
+
+  
   moveToWatched(movie: string) {
-    this.removeFromWatchlist(movie);
-    this.watchedList.push(movie);
+    const index = this.watchlist.indexOf(movie);
+      const movedMovie = this.watchlist.splice(index, 1)[0];
+      this.watchedList.push(movedMovie);
   }
 
   moveToWatchlist(movie: string) {
-    this.removeFromWatched(movie);
-    this.watchlist.push(movie);
+    const index = this.watchedList.indexOf(movie);
+      const movedMovie = this.watchedList.splice(index, 1)[0];
+      this.watchlist.push(movedMovie);
   }
 
   getWatchlist() {

@@ -37,10 +37,11 @@ export class AppComponent implements OnInit {
         // Add the movie name to the watchlist
         this.listService.addToWatchlist(response);
         this.dataStorage.storeLists();
-        // this.addForm.reset();
+        this.addForm.reset();
       });
     }
   }
+
 
   handleInput(event: any) {
     const inputValue = event.target.value.toLowerCase();
@@ -72,6 +73,14 @@ export class AppComponent implements OnInit {
   @HostListener('document:click', ['$event'])
   public onClick(event: MouseEvent): void {
     this.showOptions = false;
+  }
+
+  onSelectOption(option: any) {
+    if (this.addForm.valid) {
+      const movie = option;
+      this.listService.addToWatchlist(movie);
+      this.dataStorage.storeLists();
+    }
   }
 
 }
