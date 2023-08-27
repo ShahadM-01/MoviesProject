@@ -1,9 +1,12 @@
 <div class="flex py-2">
     <div class="justify-start flex-grow px-3">
-        {{name}}
+        <img [src]="image" class="mr-2" height="70" width="70" alt="Movie Poster" >
     </div>
-    <div class="justify-end px-2">
-        <div class="space-x-2">
+    <div class="justify-start flex-grow px-3 flex items-center">
+        {{name}} 
+    </div>
+    <div class="justify-end flex items-center">
+        <div class="flex items-center">
             <button class="bg-teal-500 text-white py-0.5 px-2 rounded"(click)="onMove()">{{btnName}}</button>
             <button class="bg-red-500 text-white py-0.5 px-4 rounded" (click)="onDelete()">Delete</button>
         </div>

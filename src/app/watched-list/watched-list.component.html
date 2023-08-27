@@ -20,7 +20,7 @@
       <app-search [query]="watchedlistSearchControl.value" [listName]="'watchedlist'"></app-search>
     </ng-container>
     <ng-container *ngIf="!watchedlistSearchControl.value">
-      <app-movie-item *ngFor="let movie of listService.getWatchedList()" [name]="movie.Title"
+      <app-movie-item *ngFor="let movie of listService.getWatchedList()" [name]="movie.Title" [image]="movie.Poster"
         [btnName]="'Unwatch'"></app-movie-item>
     </ng-container>
   </div>
