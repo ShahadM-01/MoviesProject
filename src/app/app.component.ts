@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   addForm: FormGroup;
   options: any[] = [];
   showOptions = false;
+  message: string;
+
   @HostListener('document:click', ['$event'])
   @Output() clickOutside: EventEmitter<any> = new EventEmitter<any>();
   constructor(
@@ -33,7 +35,7 @@ export class AppComponent implements OnInit {
       const movie = this.addForm.get('name').value;
       this.movieService.getMovieInfo(movie).subscribe((response) => {
         // Handle the movie information response 
-        console.log(response); 
+        console.log(response);
         // Add the movie name to the watchlist
         this.listService.addToWatchlist(response);
         this.dataStorage.storeLists();
@@ -50,19 +52,9 @@ export class AppComponent implements OnInit {
       this.movieService.getMovieInfo(inputValue).subscribe((response) => {
         if (response.Search) {
           this.options = response.Search;
-          console.log(1);
-          
-        } else {
-          this.options = [];
-          
         }
         this.showOptions = !!inputValue;
       });
-    } else {
-      this.options = [];
-      this.showOptions = false;
-      console.log(3);
-      
     }
   }
 
@@ -79,6 +71,7 @@ export class AppComponent implements OnInit {
     if (this.addForm.valid) {
       const movie = option;
       this.listService.addToWatchlist(movie);
+      this.message= this.listService.displayMessage;
       this.dataStorage.storeLists();
     }
   }
