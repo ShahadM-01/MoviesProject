@@ -25,17 +25,17 @@ export class SearchComponent implements OnChanges {
     if (this.listName === 'watchlist') {
       const watchlist = this.listService.getWatchlist();
       this.searchResults = watchlist.filter(item =>
-        item.toLowerCase().includes(this.query.toLowerCase())
+        item.Title.toLowerCase().includes(this.query.toLowerCase())
       );
     } else if (this.listName === 'watchedlist') {
       const watchedlist = this.listService.getWatchedList();
       this.searchResults = watchedlist.filter(item =>
-        item.toLowerCase().includes(this.query.toLowerCase())
+        item.Title.toLowerCase().includes(this.query.toLowerCase())
       );
     }
-
-    if (this.searchResults.length === 0) {
-      this.searchResults = ['Nothing Found'];
-    }
   }
+
+
+
 }
+

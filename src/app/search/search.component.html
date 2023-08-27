@@ -1,2 +1,2 @@
-  <app-movie-item *ngFor="let movie of searchResults" [name]="movie"
+  <app-movie-item *ngFor="let movie of searchResults" [name]="movie.Title" [image]="movie.Poster"
     [btnName]="listName === 'watchlist' ? 'Watched' : 'Unwatch'"></app-movie-item>
